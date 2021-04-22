@@ -11,7 +11,7 @@ namespace Singelton
         static void Main(string[] args)
         {
             Singelton1.Instance.Counter1 = 1; //Create Singelton1.Instance and set Counter1 = 1
-            Singelton2.Instance.Counter2 = 2; //Create Singelton1.Instance and set Counter1 = 2
+            Singelton2.Instance.Counter2 = 2; //Create Singelton2.Instance and set Counter2 = 2
             Console.WriteLine(Singelton1.Instance.Counter1 + Singelton2.Instance.Counter2); //3
         }
 

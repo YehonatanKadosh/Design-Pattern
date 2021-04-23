@@ -18,7 +18,7 @@ namespace Prototype
 
 
 
-            // Half Right way, right implementation but its a Shallow copy
+            // Half Right way, right implementation Shallow clone
             Prototype2 prototype2_0 = new Prototype2() { Counter = 3 };
             Prototype2 prototype2_1 = (Prototype2)prototype2_0.Clone();
             prototype2_1.Counter++;
@@ -31,7 +31,7 @@ namespace Prototype
 
 
 
-            // Right way, right implementation
+            // Right way, right implementation Deep clone
             Prototype3 prototype3_0 = new Prototype3() { Counter = 5 };
             Prototype3 prototype3_1 = (Prototype3)prototype3_0.Clone();
             prototype3_1.Counter++;

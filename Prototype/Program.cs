@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,46 +9,38 @@ namespace Prototype
     {
         static void Main(string[] args)
         {
-            //Wrong way, right implementation
-            Prototype1 Prototype1_0 = new Prototype1() { Counter = 3 };
-            Prototype1 prototype1_1 = (Prototype1)Prototype1_0.Clone();
-            prototype1_1.Counter = 4;
+            // Wrong way, right implementation
+            Prototype1 prototype1_0 = new Prototype1() { Counter = 1 };
+            Prototype1 prototype1_1 = (Prototype1)prototype1_0.Clone();
+            prototype1_1.Counter++;
+            /// Prototype1_0.Counter = 1
+            /// Prototype1_1.Counter = 2 - Good but messy
 
-            //Right way, right implementation
-            Prototype2 Prototype2_0 = new Prototype2() { Counter = 5 };
-            Prototype2 prototype2_1 = (Prototype2)Prototype2_0.Clone();
-            prototype2_1.Counter = 6;
 
-            ///Prototype1_0.Counter = 3
-            ///Prototype1_1.Counter = 4
-            ///Prototype2_0.Counter = 5
-            ///Prototype2.1.Counter = 6
-        }
 
-        /// <summary>
-        /// Wrong way to clone,
-        /// messy and not comfy
-        /// </summary>
-        public class Prototype1 : ICloneable
-        {
-            public int Counter { get; set; }
-            public object Clone()
-            {
-                return new Prototype1() { Counter = this.Counter /* more and more properties and fields */};
-            }
-        }
+            // Half Right way, right implementation but its a Shallow copy
+            Prototype2 prototype2_0 = new Prototype2() { Counter = 3 };
+            Prototype2 prototype2_1 = (Prototype2)prototype2_0.Clone();
+            prototype2_1.Counter++;
+            /// Prototype2_0.Counter = 3
+            /// Prototype2.1.Counter = 4
 
-        /// <summary>
-        /// Best practice,
-        /// this is the right way
-        /// </summary>
-        public class Prototype2 : ICloneable
-        {
-            public int Counter { get; set; }
-            public object Clone()
-            {
-                return MemberwiseClone(); //Create a shallow copy of the object
-            }
+            prototype2_0.Ice_Cream.Price = 10;
+            /// Prototype2_0.Ice_Cream.Price = 10
+            /// Prototype2_1.Ice_Cream.Price = 10 - BAD!
+
+
+
+            // Right way, right implementation
+            Prototype3 prototype3_0 = new Prototype3() { Counter = 5 };
+            Prototype3 prototype3_1 = (Prototype3)prototype3_0.Clone();
+            prototype3_1.Counter++;
+            /// Prototype3_0.Counter = 5
+            /// Prototype3.1.Counter = 6
+
+            prototype3_1.Ice_Cream.Price = 10;
+            /// Prototype3_0 Ice_Cream.Price = 0
+            /// Prototype3_1 Ice_Cream.Price = 10 - Best!
         }
     }
 }

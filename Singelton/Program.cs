@@ -12,7 +12,10 @@ namespace Singelton
         {
             Singelton1.Instance.Counter1 = 1; //Create Singelton1.Instance and set Counter1 = 1
             Singelton2.Instance.Counter2 = 2; //Create Singelton2.Instance and set Counter2 = 2
-            Console.WriteLine(Singelton1.Instance.Counter1 + Singelton2.Instance.Counter2); //3
+            Singelton3.Instance.Counter3 = 3; //Create Singelton1.Instance and set Counter3 = 3
+            Singelton4.Instance.Counter4 = 4; //Create Singelton2.Instance and set Counter4 = 4
+            Console.WriteLine(Singelton1.Instance.Counter1 + Singelton2.Instance.Counter2
+                              + Singelton3.Instance.Counter3 + Singelton4.Instance.Counter4); //10
         }
 
         // Small projects where there's less Risk with multythreading

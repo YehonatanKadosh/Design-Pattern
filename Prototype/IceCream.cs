@@ -1,4 +1,10 @@
-﻿namespace Prototype
+﻿using System;
+
+namespace Prototype
 {
-    public class IceCream { public int Price { get; set; } }// Refference-Type object
+    public class IceCream : ICloneable { public int Price { get; set; }
+
+        public object Clone()
+        => MemberwiseClone();
+    }// Refference-Type object
 }

@@ -87,5 +87,15 @@ namespace Singelton
             }
             private Singelton4() { } //Lock the creation of instances
         }
+
+        /// Searching the diffrences between Lock(obj) and Synchronized(obj):
+        /// 
+        /// From Microsoft Core Execution Engine (EE)-
+        /// If you lock an object, all other threads that need to access THIS PARTICULAR OBJECT will wait,
+        /// until the other object finishes.
+        /// However if you mark a method as Synchronized,
+        /// THIS PARTICULAR METHOD will not be executed at more than one thread.
+        /// 
+        //  --Lock secures the object, Synchronized secures the method.--
     }
 }

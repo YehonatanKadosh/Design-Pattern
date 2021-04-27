@@ -3,7 +3,7 @@ using Adapter.PlugTypes.Plug_Interface;
 
 namespace Adapter
 {
-    public static class Plug_Adapter
+    public static class Plug_Adapter_Extention
     {
         public static EU_Plug Adapt_To_EU(this IPlug plug)
         {
